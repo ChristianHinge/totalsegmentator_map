@@ -22,6 +22,7 @@ import tempfile
 import subprocess
 import json 
 from totalseg_pdf import generate_pdf_report
+import os
 # If `pip_packages` is specified, the definition will be aggregated with the package dependency list of other
 # operators and the application in packaging time.
 # @md.env(pip_packages=["scikit-image >= 0.17.2"])
@@ -78,10 +79,12 @@ class TotalsegmentatorOperator(Operator):
             print("Running TotalSegmentator...")
             in_dir = str(temp)
             out_dir = in_dir + "/out"
+            totalseg_home_dir = os.path.dirname(os.path.abspath(__file__))+"/.totalseg"
             cmd = f"TotalSegmentator -f --roi_subset spleen --statistics --body_seg -i {in_dir} -o {out_dir}"
-            subprocess.check_output(cmd.split(" "))
+            env = os.environ.copy()
+            env["TOTALSEG_HOME_DIR"] = totalseg_home_dir
+            subprocess.check_output(cmd.split(" "),env=env)
             js = out_dir + "/statistics.json"
-            #js = "/home/pet/monai-deploy-app-sdk/examples/apps/simple_imaging_app/seg/statistics.json"
             with open(js,"r") as handle:
                report = json.load(handle)
 

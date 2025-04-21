@@ -1,1 +1,3 @@
 A minimalistic implementation of totalsegmentator as a monai application pacakge (MAP), to be run in Monai Deploy. The totalsegmentator MAP takes as input a CT DICOM series, and returns a PDF report with organ volumes
+
+Make sure to run `python app.py -i some_folder -o some_folder` at least once before `monai-deploy package` to ensure that the totalsegmentator weights are downloaded to the project root. Otherwise, the packaged MAP Container will re-download the weights everytime it is spun up. 
