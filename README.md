@@ -1,0 +1,1 @@
+A minimalistic implementation of totalsegmentator as a monai application pacakge (MAP), to be run in Monai Deploy. The totalsegmentator MAP takes as input a CT DICOM series, and returns a PDF report with organ volumes
