@@ -12,9 +12,7 @@
 import logging
 from pathlib import Path
 
-from gaussian_operator import GaussianOperator
 from totalseg_operator import TotalsegmentatorOperator, TotalsegmentatorPDFOperator
-from sobel_operator import SobelOperator
 
 from monai.deploy.conditions import CountCondition
 from monai.deploy.core import AppContext, Application

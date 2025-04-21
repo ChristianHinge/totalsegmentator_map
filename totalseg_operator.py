@@ -75,12 +75,13 @@ class TotalsegmentatorOperator(Operator):
                 dcm_filepath = f._sop.filename
                 shutil.copy2(dcm_filepath, temp)
             
+            print("Running TotalSegmentator...")
             in_dir = str(temp)
             out_dir = in_dir + "/out"
             cmd = f"TotalSegmentator -f --roi_subset spleen --statistics --body_seg -i {in_dir} -o {out_dir}"
-            #subprocess.check_output(cmd.split(" "))
-            #js = out_dir + "/statistics.json"
-            js = "/home/pet/monai-deploy-app-sdk/examples/apps/simple_imaging_app/seg/statistics.json"
+            subprocess.check_output(cmd.split(" "))
+            js = out_dir + "/statistics.json"
+            #js = "/home/pet/monai-deploy-app-sdk/examples/apps/simple_imaging_app/seg/statistics.json"
             with open(js,"r") as handle:
                report = json.load(handle)
 
