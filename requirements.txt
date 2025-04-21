@@ -97,9 +97,9 @@ pydantic==1.10.21
 pydantic_core==2.33.1
 pydicom==3.0.1
 Pygments==2.19.1
-pyjpegls==1.5.1
+pyjpegls==1.4.0
 pylibjpeg==2.0.1
-pylibjpeg-libjpeg==2.3.0
+pylibjpeg-libjpeg==2.2.0
 pyparsing==3.2.3
 PyPDF2==3.0.1
 python-dateutil==2.9.0.post0
